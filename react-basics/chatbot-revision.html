@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sec-ChatBot</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2rem;
+      }
+      button {
+        font-size: 1.1rem;
+      }
+   
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script type="text/babel">
+
+      function ChatInput(){
+        return(
+          <>
+            <input type="text" placeholder="send a message to chatbot" />
+            <button>Send</button>
+          </>
+        )
+      }
+
+        function Chats({message, sender}){
+
+            const userImage = <img src="user.png" alt="USER" width="50" />;
+            const robotImage = <img src="robot.png" alt="ROBOT" width="50" />
+
+            return(
+              <div>
+                {sender === "robot" && robotImage}
+                {message}
+                {sender === "user" && userImage}
+              </div>
+            )
+        }
+
+        function ChatMessages(){
+          const chartMessages = [{
+              message: "hello Chatbot",
+              sender: "user",
+              id: crypto.randomUUID()
+            },{
+              message: "cool, how can i help you today ?",
+              sender: "robot",
+              id: crypto.randomUUID()
+            },{
+              message: "whats your real name ?",
+              sender: "user",
+              id: crypto.randomUUID()
+            },{
+              message: "ChatBot the Master..💫",
+              sender: "robot",
+              id: crypto.randomUUID()
+            },{
+              message: "thank you for assisting",
+              sender: "user",
+              id: crypto.randomUUID()
+            },{
+              message: "You are much welcome..🤎",
+              sender: "robot",
+              id: crypto.randomUUID()
+          }]
+
+          function add(){
+            chartMessages.push({
+              message: "ok",
+              sender: "robot",
+              id: crypto.randomUUID()
+            })
+            console.log(chartMessages)
+          }
+
+          chartMessages.map((chartMessage)=>{
+              return( 
+                <> 
+                  <Chats
+                  message={chartMessage.message}
+                  sender={chartMessage.sender}
+                  key={chartMessage.id} />
+                </>
+              )
+            })
+
+        }
+
+       function App() {
+        
+       
+        return(
+          <>
+            <ChatInput />
+            <button onClick={add}>chat</button>
+            <ChatMessages />
+          </>
+        )
+      }
+ 
+      const container = document.querySelector('#root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+      
+    </script>
+  </body>
+</html>

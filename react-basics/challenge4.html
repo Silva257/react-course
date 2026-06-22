@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 4</title>
+  <style>
+    .light-on, .light-off {
+      padding: 15px 20px;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+    }
+    .light-off {
+      background-color: red;
+      box-shadow: 4px 3px 5px red;
+    }
+
+    .light-on {
+      background-color: blue;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="js-container"></div>
+
+  <!-- External Libraries -->
+  <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+  <script type="text/babel">
+    const container = document.querySelector('.js-container');
+
+    // React Component
+    function App() {
+      const [currentTime, setCurrentTime] = React.useState(dayjs().format('HH:mm:ss'));
+      const today = dayjs().format('MMMM D');
+
+      React.useEffect(() => {
+        setInterval(() => {
+          setCurrentTime(dayjs().format('HH:mm:ss'));
+          }, 1000
+        );
+        }, []
+      );
+
+     // challenge 4
+
+      const [isButtonOn, setIsButtonON] = React.useState(true);
+
+      function lampSwitch(){
+       //setIsButtonON( !isButtonOn )
+       setIsButtonON(true ? !isButtonOn : isButtonOn )
+      }
+
+      return (
+        <div>
+         
+          <button className={isButtonOn ? "light-on" : "light-off"} onClick={lampSwitch}>{isButtonOn ? "ON" : "OFF"}</button>
+
+
+
+          <p>Today is {today}</p>
+          <p>Current Time: {currentTime}</p>
+          <br/>
+         
+        </div>
+      );
+    }
+
+    // Render the App component
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />);
+  </script>
+</body>
+</html>

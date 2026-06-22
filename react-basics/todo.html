@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        body, p, input, label{
+            font-size: 1.2rem;
+            display: block;
+        }
+        button{
+            margin: 5px 0;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+   <h2>Todo App</h2>
+   <label for="todoInput">Write a task</label>
+   <input type="text" id="todoInput" placeholder="add a todo ">
+   <label for="date">select date</label>
+   <input type="date" id="date">
+   <button class="addTask">add task</button>
+   <button class="clearTodos">clear todos</button>
+   <div class="todos"></div>
+
+   <script>
+    const todoInput = document.getElementById('todoInput');
+    const dateInput = document.getElementById('date');
+    const addButton = document.querySelector('.addTask');
+    const clearButton = document.querySelector('.clearTodos');
+    const todoContainer = document.querySelector('.todos');
+
+    const todos = [];
+
+    function addTodo(){
+        const task = todoInput.value;
+        const date = dateInput.value;
+
+        if (task) {
+
+            todos.push({task, date});
+
+            todoInput.value = '';
+            dateInput.value = '';
+        }
+
+        // update the ui
+
+        renderTodos();
+
+    }
+
+    function renderTodos(){
+        todoContainer.innerHTML = todos.map((todo, index)=>{
+            const { task, date } = todo;
+
+            return `
+            <p>
+                ${index + 1}. ${task} ${date} <button onclick="editFunction(${index})">edit</button> <button class="deleteBtn" onclick="
+                deleteFunction(${index})">delete</button>
+            </p>`
+        }).join('')
+    }
+
+    // delete function
+
+    function deleteFunction(index){
+            todos.splice(index, 1);
+            renderTodos()
+         
+    }
+
+    // edit function
+
+    function editFunction(index){
+        const {tod, date} = todos[index];
+        todoInput.value = tod;
+        dateInput.value = date;
+        todos.splice(index, 1);
+
+        renderTodos();
+    }
+
+    addButton.addEventListener('click', addTodo );
+
+   </script>
+</body>
+</html>
