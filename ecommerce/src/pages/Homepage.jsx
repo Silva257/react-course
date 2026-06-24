@@ -6,7 +6,7 @@ export function HomePage() {
   return (
     <>
       <title>Homepage</title>
-      
+
       <div class="header">
         <div class="left-section">
           <a href="/" class="header-link">
@@ -32,7 +32,7 @@ export function HomePage() {
         </div>
 
         <div class="right-section">
-          <a class="orders-link header-link" href="orders.html">
+          <a class="orders-link header-link" href="/orders">
             <span class="orders-text">Orders</span>
           </a>
 

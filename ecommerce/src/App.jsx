@@ -3,6 +3,7 @@ import  CheckoutTwo  from "./pages/CheckoutTwo";
 import './App.css'
 import { HomePage } from './pages/Homepage'
 import {Routes, Route} from 'react-router'
+import { Orders } from './pages/Orders';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/checkout2" element={<CheckoutTwo />} />
+        <Route path="/orders" element={<Orders />} />
       </Routes>
     </>
   );
