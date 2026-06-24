@@ -1,9 +1,8 @@
-import "./Header.css"
+import "./Header.css";
 // import './App.css'
-import './HomePage.css'
+import "./HomePage.css";
 
 export function HomePage() {
-
   return (
     <>
       <div class="header">
