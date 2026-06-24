@@ -5,6 +5,8 @@ import "./HomePage.css";
 export function HomePage() {
   return (
     <>
+      <title>Homepage</title>
+      
       <div class="header">
         <div class="left-section">
           <a href="/" class="header-link">
