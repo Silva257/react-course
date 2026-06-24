@@ -34,7 +34,7 @@ export function HomePage() {
             <span class="orders-text">Orders</span>
           </a>
 
-          <a class="cart-link header-link" href="checkout">
+          <a class="cart-link header-link" href="/checkout">
             <img
               alt="image"
               class="cart-icon"

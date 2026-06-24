@@ -1,7 +1,7 @@
-import "./Checkout.css";
-import "./Checkout-header.css";
+import "./Checkout.css"
+import "./Checkout-header.css"
 
-export function Checkout() {
+function CheckoutTwo() {
   return (
     <>
       <div className="checkout-header">
@@ -231,3 +231,5 @@ export function Checkout() {
     </>
   );
 }
+
+export default CheckoutTwo
