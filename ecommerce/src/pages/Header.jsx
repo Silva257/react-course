@@ -1,40 +1,41 @@
 import './Header.css'
+import { Link } from 'react-router';
 
 export function Header() {
   return (
-    <div class="header">
-      <div class="left-section">
-        <a href="/" class="header-link">
-          <img alt="image" class="logo" src="images/logo-white.png" />
+    <div className="header">
+      <div className="left-section">
+        <Link to="/" className="header-link">
+          <img alt="image" className="logo" src="images/logo-white.png" />
           <img
             alt="image"
-            class="mobile-logo"
+            className="mobile-logo"
             src="images/mobile-logo-white.png"
           />
-        </a>
+        </Link>
       </div>
 
-      <div class="middle-section">
-        <input class="search-bar" type="text" placeholder="Search" />
+      <div className="middle-section">
+        <input className="search-bar" type="text" placeholder="Search" />
 
-        <button class="search-button">
+        <button className="search-button">
           <img
             alt="image"
-            class="search-icon"
+            className="search-icon"
             src="images/icons/search-icon.png"
           />
         </button>
       </div>
 
-      <div class="right-section">
-        <a class="orders-link header-link" href="/orders">
-          <span class="orders-text">Orders</span>
+      <div className="right-section">
+        <a className="orders-link header-link" href="/orders">
+          <span className="orders-text">Orders</span>
         </a>
 
-        <a class="cart-link header-link" href="/checkout">
-          <img alt="image" class="cart-icon" src="images/icons/cart-icon.png" />
-          <div class="cart-quantity">3</div>
-          <div class="cart-text">Cart</div>
+        <a className="cart-link header-link" href="/checkout">
+          <img alt="image" className="cart-icon" src="images/icons/cart-icon.png" />
+          <div className="cart-quantity">3</div>
+          <div className="cart-text">Cart</div>
         </a>
       </div>
     </div>
