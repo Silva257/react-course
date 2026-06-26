@@ -112,9 +112,9 @@
   padding-right: 13px;
 }
 
-.header .right-section .orders-link.active {
+ .right-section .orders-link.active {
   color: blue;
-  border-bottom: 2px solid red;
+  /* border-bottom: 2px solid red; */
   background-color: lightcyan;
 }
 /* .header .right-section:has( .orders-link:active){
