@@ -112,6 +112,24 @@
   padding-right: 13px;
 }
 
+.header .right-section .orders-link.active {
+  color: blue;
+  border-bottom: 2px solid red;
+  background-color: lightcyan;
+}
+/* .header .right-section:has( .orders-link:active){
+  .orders-link {
+   color: blue;
+   border-bottom: 1px solid;
+ }
+} */
+
+
+/* .orders-link .header-link:active {
+  color: blue;
+  border-bottom: 1px solid;
+}  */
+
 .header .orders-text {
   display: block;
   font-size: 15px;
