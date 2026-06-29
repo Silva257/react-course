@@ -1,7 +1,7 @@
 import userImage from "../assets/user.png";
 import robotImage from "../assets/robot.png";
 
-function ChatMessages({ message, sender }) {
+function ChatMessage({ message, sender }) {
   const user = <img src={userImage} alt="user" width="50" />;
   const robot = <img src={robotImage} alt="user" width="50" />;
 
