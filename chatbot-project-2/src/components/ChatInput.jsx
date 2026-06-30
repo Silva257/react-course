@@ -1,8 +1,21 @@
-function ChatInput() {
+function ChatInput({chatMessages, setChatMessages }) {
+
+  function addMessage() {
+    setChatMessages([
+      ...chatMessages,
+      {
+        message: "hello bot",
+        sender: "user",
+        id: crypto.randomUUID(),
+      },
+    ]);
+    console.log(chatMessages)
+  }
+  
   return (
     <>
       <input type="text" placeholder="chat with the bot" />
-      <button>send</button>
+      <button onClick={addMessage}>send</button>
     </>
   );
 }

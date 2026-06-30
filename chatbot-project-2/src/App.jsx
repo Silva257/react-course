@@ -1,16 +1,45 @@
 import ChatInput from "./components/ChatInput";
 import ChatMessage from "./components/ChatMessages";
+import { useState } from "react";
 
 function App() {
+  const userId = new Date();
+  console.log(userId);
+  const botId = crypto.randomUUID();
+  console.log(botId);
+  const [chatMessages, setChatMessages] = useState([
+    {
+      message: "hello chatBot",
+      sender: "user",
+      id: userId,
+    },
+    {
+      message: "hello user",
+      sender: "robot",
+      id: botId,
+    },
+  ]);
+
+  const chats = chatMessages.map((chatMessage) => {
+    return (
+      <ChatMessage
+        message={chatMessage.message}
+        sender={chatMessage.sender}
+        key={chatMessage.id}
+      />
+    );
+  });
+
   return (
     <>
-      <h1>chatbot app</h1>
+      <h1>chatbot app.</h1>
 
-      <ChatMessage message="hello now" sender="user" />
+      {chats}
 
-      <ChatMessage message="hello how can i help you" sender="robot" />
-
-      <ChatInput />
+      <ChatInput
+        chatMessages={chatMessages}
+        setChatMessages={setChatMessages}
+      />
     </>
   );
 }
