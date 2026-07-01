@@ -7,10 +7,10 @@ function ChatMessage({ message, sender }) {
   const robot = <img src={robotImage} alt="user" width="50" />;
 
   return (
-    <div>
-      {sender === "user" && user}
-      {message}
-      {sender === "robot" && robot}
+    <div className="message-container">
+      <div>{sender === "user" && user}</div>
+      <div>{message}</div>
+      <div>{sender === "robot" && robot}</div>
     </div>
   );
 }
