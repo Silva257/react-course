@@ -467,31 +467,31 @@ export function Products(){
   return(
     products.map((product) => {
                 return (
-                  <div key={product.id} class="product-container">
-                    <div class="product-image-container">
-                      <img alt="image" class="product-image" src={product.image} />
+                  <div key={product.id} className="product-container">
+                    <div className="product-image-container">
+                      <img alt="image" className="product-image" src={product.image} />
                     </div>
     
-                    <div class="product-name limit-text-to-2-lines">
+                    <div className="product-name limit-text-to-2-lines">
                       {product.name}
                     </div>
     
-                    <div class="product-rating-container">
+                    <div className="product-rating-container">
                       <img
                         alt="image"
-                        class="product-rating-stars"
+                        className="product-rating-stars"
                         src={`images/ratings/rating-${product.rating.stars * 10}.png`}
                       />
-                      <div class="product-rating-count link-primary">
+                      <div className="product-rating-count link-primary">
                         {product.rating.count}
                       </div>
                     </div>
     
-                    <div class="product-price">
+                    <div className="product-price">
                       ${(product.priceCents / 100).toFixed(2)}
                     </div>
     
-                    <div class="product-quantity-container">
+                    <div className="product-quantity-container">
                       <select title="options">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -506,14 +506,14 @@ export function Products(){
                       </select>
                     </div>
     
-                    <div class="product-spacer"></div>
+                    <div className="product-spacer"></div>
     
-                    <div class="added-to-cart">
+                    <div className="added-to-cart">
                       <img alt="image" src="images/icons/checkmark.png" />
                       Added
                     </div>
     
-                    <button class="add-to-cart-button button-primary">
+                    <button className="add-to-cart-button button-primary">
                       Add to Cart
                     </button>
                   </div>
