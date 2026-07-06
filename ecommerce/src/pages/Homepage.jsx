@@ -1,10 +1,12 @@
 import { Header } from "./Header";
 import "./HomePage.css";
 import { Products } from "./products";
-// import { useEffect } from "react";
-// import axios from "axios"
+ import { useEffect, useState} from "react";
+ import axios from "axios"
 
 export function HomePage() {
+
+  const [cart, setCart] = useState([]);
 
   /* fetch("http://localhost:3000/api/products")
     .then((response) => {
@@ -14,18 +16,18 @@ export function HomePage() {
       console.log(data);
     });*/
 
-  /* useEffect(()=>{
-    axios.get("http://localhost:3000/api/products").then((response) => {
-      console.log(response.data);
+   useEffect(()=>{
+    axios.get("http://localhost:3000/api/cart-items").then((response) => {
+      setCart(response.data);
     });
-  }, []) */
+  }) 
    
  
   return (
     <>
       <title>Homepage</title>
 
-      <Header />
+      <Header cart={cart} />
 
       <div className="home-page">
         <div className="products-grid">
