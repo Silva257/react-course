@@ -1,5 +1,16 @@
+import axios from "axios"
+import { useEffect, useState } from "react";
+
 export function Products(){
-  const products = [
+
+  const [products, setProducts] = useState([]);
+  useEffect(()=>{
+    axios.get('http://localhost:3000/api/products')
+    .then(response => {
+      setProducts(response.data)
+    })
+  })
+  /*const products = [
     {
       id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
       image: "images/products/athletic-cotton-socks-6-pairs.jpg",
@@ -462,7 +473,7 @@ export function Products(){
       priceCents: 1899,
       keywords: ["kitchen", "kitchen towels", "tissues"],
     },
-  ];
+  ];*/
 
   return(
     products.map((product) => {
