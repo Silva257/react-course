@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+import { moneyFormat } from "../utils/money";
 
 export function Products(){
 
@@ -502,7 +503,8 @@ export function Products(){
                     </div>
     
                     <div className="product-price">
-                      ${(product.priceCents / 100).toFixed(2)}
+                      {/* ${(product.priceCents / 100).toFixed(2)} */}
+                      {moneyFormat(product.priceCents)}
                     </div>
     
                     <div className="product-quantity-container">
