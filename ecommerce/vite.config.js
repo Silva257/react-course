@@ -6,13 +6,13 @@ export default defineConfig({
   plugins: [react()],
   server: {
     open: true,
-  },
-  proxy: {
-    "/api": {
-      target: "http://localhost:3000",
-    },
-    "/images": {
-      target: "http://localhost:3000",
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+      },
+      "/images": {
+        target: "http://localhost:3000",
+      },
     },
   },
 });

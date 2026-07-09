@@ -3,7 +3,7 @@ import "./HomePage.css";
 import { Products } from "./products";
 
 
-export function HomePage({cart}) {
+export function HomePage({ cart }) {
 
   /* fetch("http://localhost:3000/api/products")
     .then((response) => {

@@ -4,11 +4,15 @@ import { useEffect, useState } from "react";
 export function Products(){
 
   const [products, setProducts] = useState([]);
+
   useEffect(()=>{
-    axios.get("http://localhost:3000/api/products").then((response) => {
+    const getProducts = async ()=> {
+      const response = await axios.get("/api/products");
       setProducts(response.data);
-    });
+    }
+    getProducts();
   })
+
   /*const products = [
     {
       id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -477,7 +481,7 @@ export function Products(){
   return(
     products.map((product) => {
                 return (
-                  <div key={product.id} className="product-container">
+                  <div key={product.id} className="product-container" >
                     <div className="product-image-container">
                       <img alt="image" className="product-image" src={product.image} />
                     </div>
