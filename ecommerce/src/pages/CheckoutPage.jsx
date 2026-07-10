@@ -1,6 +1,7 @@
 import "./Checkout.css";
 import "./Checkout-header.css";
 import { Link } from "react-router";
+import { moneyFormat } from "../utils/money";
 
 export function Checkout({ cart }) {
 
@@ -59,10 +60,10 @@ export function Checkout({ cart }) {
                     <div className="product-name">
                      {cartItem.product.name}
                     </div>
-                    <div className="product-price">$10.90</div>
+                    <div className="product-price">{ moneyFormat(cartItem.product.priceCents) }</div>
                     <div className="product-quantity">
                       <span>
-                        Quantity: <span className="quantity-label">{cartItem.quantity}</span>
+                        Quantity: <span className="quantity-label">{ cartItem.quantity }</span>
                       </span>
                       <span className="update-quantity-link link-primary">
                         Update
@@ -292,6 +293,7 @@ export function Checkout({ cart }) {
                 </div>
               </div>
             </div> */}
+
           </div>
 
           <div className="payment-summary">
