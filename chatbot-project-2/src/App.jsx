@@ -42,6 +42,13 @@ function App() {
         >
           delete
         </button>
+        <button
+          onClick={() => {
+            handleDelete(chatMessage.id);
+          }}
+        >
+          delete
+        </button>
       </ChatMessage>
     );
   });
@@ -52,7 +59,9 @@ function App() {
 
       <div className="app-container">
         <div className="chats-container" ref={chatsElem}>
+
           {chats}
+          
         </div>
 
         <div className="chat-input">

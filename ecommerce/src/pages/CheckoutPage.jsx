@@ -2,8 +2,21 @@ import "./Checkout.css";
 import "./Checkout-header.css";
 import { Link } from "react-router";
 import { moneyFormat } from "../utils/money";
+import axios from 'axios'
+import { useState, useEffect } from "react";
 
 export function Checkout({ cart }) {
+
+const [deliveryOptions, setDeliveryOptions] = useState([]);
+
+useEffect(()=>{
+  const optionChoser = async ()=>{
+    const response = await axios.get("/api/delivery-options");
+    setDeliveryOptions(response.data)
+  }
+
+  optionChoser()
+}, [])
 
   let cartTotal = 0;
 

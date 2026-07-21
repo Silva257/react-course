@@ -11,7 +11,7 @@ function ChatMessage({ message, sender, children }) {
     <div className="message-container">
       <div>{sender === "user" && user}</div>
       <div>{message}</div>
-      {children}
+      { children }
       <div>{sender === "robot" && robot}</div>
     </div>
   );
